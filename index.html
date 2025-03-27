@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Routine Alarm</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+    <div class="container">
+        <div id="day-selection" class="section">
+            <h1>Daily Routine Planner</h1>
+            <p>Select your day type for today:</p>
+            <div class="button-group">
+                <button id="college-day" class="day-btn">College Day - 1</button>
+                <button id="non-college-day" class="day-btn">Non-College Day</button>
+                <button id="alternate-college-day" class="day-btn">College Day - 2</button>
+            </div>
+        </div>
+
+        <div id="routine-display" class="section hidden">
+            <div class="header-controls">
+                <h2 id="day-type-header">Your Routine</h2>
+                <div class="button-controls">
+                    <button id="reset-day" class="small-btn danger-btn">Reset Progress</button>
+                    <button id="change-day" class="small-btn">Change Day</button>
+                </div>
+            </div>
+
+            <div id="current-task" class="current-task">
+                <h3>Current Task:</h3>
+                <div id="task-info">
+                    <p id="task-name">No active task</p>
+                    <p id="task-time">--:-- - --:--</p>
+                </div>
+                <div id="task-controls">
+                    <button id="snooze-btn" disabled>Snooze (5 min)</button>
+                    <button id="complete-btn" disabled>Mark Complete</button>
+                </div>
+            </div>
+
+            <div id="next-task" class="next-task">
+                <h3>Next Task:</h3>
+                <p id="next-task-info">No upcoming tasks</p>
+            </div>
+
+            <div class="time-display">
+                <div id="current-time">00:00</div>
+                <div id="current-date">Loading date...</div>
+            </div>
+
+            <div class="routine-table">
+                <h3>Today's Schedule</h3>
+                <table id="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Activity</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule-body">
+                        <!-- Tasks will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="alarm-sound" preload="auto">
+        <source src="alarm.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Service worker registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('service-worker.js').then(function (registration) {
+                    console.log('ServiceWorker registration successful');
+                }, function (err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+    <!-- App scripts -->
+    <script src="routines.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
