@@ -5,7 +5,7 @@ const routines = {
         { time: '07:30 AM - 08:00 AM', activity: 'Bath and get ready' },
         { time: '08:00 AM - 01:30 PM', activity: 'College' },
         { time: '01:30 PM - 01:50 PM', activity: 'Lunch' },
-        { time: '01:50 PM - 02:50 PM', activity: 'Placement Study' },
+        { time: '01:50 PM - 08:00 PM', activity: 'Placement Study' },
         { time: '08:00 PM - 10:00 PM', activity: 'Play time' },
         { time: '10:00 PM - 10:20 PM', activity: 'Dinner' },
         { time: '10:20 PM - 11:30 PM', activity: 'College study' },
